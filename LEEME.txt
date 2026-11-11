@@ -1,0 +1,53 @@
+FIDEBANK - AVANCE 2 (VERSIÓN SENCILLA CON OPCIONALES)
+Curso: Programación Cliente/Servidor Concurrente
+
+QUÉ TIENE ESTE PROYECTO
+- 9 clases Java, un solo paquete: fidebank.
+- Interfaz con Swing: ingreso, registro y menú.
+- Historias de usuario HU-01 a HU-05 del Avance 1.
+  (Cuenta, PIN, saldo/historial, retiro y depósito: 5 de 7 = 71%).
+- Herencia: CuentaAhorros y CuentaCorriente extienden CuentaBancaria.
+- Polimorfismo: getTipoCuenta() cambia según el tipo de cuenta.
+- Excepciones: datos incorrectos, PIN, saldo y cantidades inválidas.
+- Colecciones: ArrayList para cuentas, clientes y transacciones.
+- Serialización (OPCIONAL INCLUIDA): guarda los datos en fidebank.dat.
+- Multihilos (OPCIONAL INCLUIDO): un Thread por conexión en Servidor.java.
+- Comunicación cliente-servidor por sockets Java, sin frameworks.
+
+CÓMO ABRIR EN NETBEANS
+1. Descomprimir el ZIP o clonar el repositorio.
+2. En NetBeans: Archivo > Abrir proyecto.
+3. Usar JDK 17 o superior.
+4. Ejecutar primero src/fidebank/Servidor.java con clic derecho > Run File.
+5. Ejecutar después src/fidebank/Ventana.java con clic derecho > Run File.
+6. Abrir una cuenta, anotar el IBAN e iniciar sesión con el PIN de 4 dígitos.
+
+CÓMO PROBAR LA SERIALIZACIÓN
+1. Crear una cuenta y hacer un depósito.
+2. Cerrar el servidor y ejecutarlo otra vez.
+3. Abrir la ventana, ingresar con el mismo IBAN y PIN.
+4. Se recuperan la cuenta, el saldo y los movimientos anteriores.
+5. El archivo fidebank.dat se crea automáticamente cuando se usa el programa.
+   No es obligatorio entregarlo y no debe subirse a GitHub.
+
+CÓMO VER QUE HAY MULTIHILOS
+- Dejar ejecutándose Servidor.java.
+- Abrir dos ventanas de Ventana.java (Run File dos veces).
+- Las dos ventanas pueden comunicarse con el mismo servidor.
+- Las operaciones se protegen con synchronized para evitar errores de saldo.
+
+ALCANCE DE ESTE AVANCE
+- Incluye las técnicas del documento, incluyendo las dos opcionales.
+- Implementa 5/7 historias, superando el mínimo 40% de la rúbrica.
+- Las transferencias HU-06 y comprobantes HU-07 se dejan para el avance final.
+- La interfaz conserva ingreso, registro y menú del prototipo del Avance 1;
+  aún no implementa las pantallas de transferencias y comprobantes.
+- Es un programa educativo, no una aplicación bancaria real.
+
+ARCHIVOS PRINCIPALES
+- Servidor.java: atiende clientes y guarda/carga datos.
+- Ventana.java: interfaz gráfica (también es el programa cliente).
+- Banco.java: operaciones del sistema.
+- Cliente.java, CuentaBancaria.java, CuentaAhorros.java, CuentaCorriente.java:
+  información de clientes y cuentas.
+- GestorTransacciones.java, Transaccion.java: registros de movimientos.
