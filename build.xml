@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FideBank_Avance2_Completo_Sencillo" default="run" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}"
+               includeantruntime="false" encoding="UTF-8" release="17"/>
+    </target>
+    <target name="run" depends="compile">
+        <java classname="fidebank.Ventana" fork="true">
+            <classpath path="${classes.dir}"/>
+        </java>
+    </target>
+    <target name="run-server" depends="compile">
+        <java classname="fidebank.Servidor" fork="true">
+            <classpath path="${classes.dir}"/>
+        </java>
+    </target>
+</project>
